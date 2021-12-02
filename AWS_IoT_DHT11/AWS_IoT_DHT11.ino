@@ -19,7 +19,6 @@
 
   This example code is in the public domain.
 */
-
 #include <ArduinoBearSSL.h>
 #include <ArduinoECCX08.h>
 #include <ArduinoMqttClient.h>
@@ -48,6 +47,9 @@ BearSSLClient sslClient(wifiClient); // Used for SSL/TLS connection, integrates 
 MqttClient    mqttClient(sslClient);
 
 unsigned long lastMillis = 0;
+// 조도 센서 : 에어컨 전원 on/off 를 감지 
+int lightSensor = A1;
+
 
 Led led1(LED_1_PIN);
 
@@ -148,13 +150,19 @@ void connectMQTT() {
 
 void getDeviceStatus(char* payload) {
   // Read temperature as Celsius (the default)
-  float t = dht.readTemperature();
-
+  float t = dht.readTemperature(); // 온도 값 읽어오기
+  float h = dht.readHumidity(); // 습도 값 읽기 
+  
+  int light = analogRead(lightSensor); // 조도센서 값 읽어오기
+  Serial.print("light : ");
+  Serial.println(light);
   // Read led status
   const char* led = (led1.getState() == LED_ON)? "ON" : "OFF";
-
+  const char* airCondStatus = (light > 100 )? "ON" : "OFF";
   // make payload for the device update topic ($aws/things/MyMKRWiFi1010/shadow/update)
-  sprintf(payload,"{\"state\":{\"reported\":{\"temperature\":\"%0.2f\",\"LED\":\"%s\"}}}",t,led);
+  sprintf(payload,"{\"state\":{\"reported\":{\"temperature\":\"%0.2f\",\"humidity\":\"%0.2f\",\"airCondStatus\":\"%s\",\"LED\":\"%s\"}}}",t,h,airCondStatus,led);
+//    sprintf(payload,"{\"state\":{\"reported\":{\"temperature\":\"%0.2f\",\"LED\":\"%s\"}}}",t,led);
+
 }
 
 void sendMessage(char* payload) {
