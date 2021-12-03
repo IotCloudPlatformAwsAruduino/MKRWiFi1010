@@ -1,6 +1,7 @@
 // Fill in  your WiFi networks SSID and password
-#define SECRET_SSID "Tony"//"hyun"
-#define SECRET_PASS "179132022"//"179132022"
+
+#define SECRET_SSID "지100x100"
+#define SECRET_PASS "123456789"
 
 // Fill in the hostname of your AWS IoT broker
 #define SECRET_BROKER "a1fy9pcff2h0c5-ats.iot.ap-northeast-2.amazonaws.com"
