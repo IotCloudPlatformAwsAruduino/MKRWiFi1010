@@ -201,7 +201,7 @@ void getDeviceStatus(char* payload) { // 디바이스 상태 값 가져와서 pa
         delay(10);
       }
       
-    }else if((h <= 40.0 || t <= 23.0) && (strcmp(airCondStatus,"ON"))==0 ){ //에어컨 꺼지는 조건
+    }else if((h <= 40.0 && t <= 29.0) && (strcmp(airCondStatus,"ON"))==0 ){ //에어컨 꺼지는 조건
 
       for(int i=0; i<100; i++){ // 에어컨의 전원이 OFF 일 때 까지
         angle = angle + 1 ;
