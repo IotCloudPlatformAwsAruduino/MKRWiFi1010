@@ -226,9 +226,9 @@ void getDeviceStatus(char* payload) { // 디바이스 상태 값 가져와서 pa
     }
     
   }
-      
-    
-  
+  if(strcmp(led,"OFF")==0){ // 스마트 에어컨 시스템 OFF 일때 아예 작동 안하도록.
+     
+  }
 }
 
 void sendMessage(char* payload) {
