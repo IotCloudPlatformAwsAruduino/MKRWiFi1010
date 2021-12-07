@@ -24,10 +24,16 @@ ___
 
 ## 서비스 구성도
 ![image](https://user-images.githubusercontent.com/72599051/143241035-e962d196-8519-418c-a038-5cf6dc6108d7.png)
+
+___ 
+
+## 안드로이드 APP 화면 예시 
+![image](https://user-images.githubusercontent.com/72599051/144988777-40561d91-c9ee-4e11-b669-2ac964e43a50.png)
+
 ___ 
 
 
-1. REST API 설계
+## 1. REST API 설계
 다음 프로그램 코드를 실행시키기 위해서는 다음 형식의 REST API가 준비되어 있어야 합니다.
 - 디바이스 로그 조회 
 ```
@@ -87,6 +93,12 @@ GET /devices/{deviceId}
 ```
 적정 온도 및 습도를 벗어나면 스마트시스템 상태가 ON 일 경우에 적정온도 및 습도를 유지하기 위해 에어컨 및 제습기를 제어가능.
 ```
+___ 
+
+## 아두이노 코드 핵심 flow  
+![image](https://user-images.githubusercontent.com/72599051/144989300-7d5f013e-73c2-4334-b0f4-92b863ca6a8a.png)
+
+___ 
 
 
 
