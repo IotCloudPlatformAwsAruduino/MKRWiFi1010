@@ -28,6 +28,7 @@ ___
 ___ 
 
 ## 안드로이드 APP 화면 예시 
+센서에 의해 측정된 값들은 AWS상의 mqtt 클라이언트에 의해 구독되어져서 구축해둔 REST API 를 통해 사용자가 APP상에서 확인 및 사물의 상태를 제어할 수 있습니다.
 ![image](https://user-images.githubusercontent.com/72599051/144988777-40561d91-c9ee-4e11-b669-2ac964e43a50.png)
 
 ___ 
